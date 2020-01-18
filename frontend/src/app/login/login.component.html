@@ -1,0 +1,33 @@
+<div class="container-fluid bg-light mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-4 align-middle login-form-1">
+      <h2>Login :</h2>
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            [(ngModel)]="username"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="password"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btnSubmit" value="Login"/>
+        </div>
+        <div class="form-group">
+          <a [routerLink]="'/inscription'" class="ForgetPwd">You don't have an account , Sign Up ? </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

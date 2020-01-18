@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+<div class="pt-5 container">
+  <div class="row">
+    <div class="col-lg-3">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-lg-9 ">
+      <div class="card mt-4">
+        <img
+          class="card-img-top img-fluid"
+          [src]="theDesignatedProduct.urlImage"
+          alt=""
+        />
+        <div class="card-body">
+          <div class="row">
+            <h3 class="card-title col-10">{{ theDesignatedProduct.name }}</h3>
+            <h3>$ {{ theDesignatedProduct.prix }}</h3>
+          </div>
+          <p>Ref°: {{ theDesignatedProduct._id }}</p>
+          <p class="card-text">
+            Left in stock :
+            <span
+              *ngIf="theDesignatedProduct.quantite > 0"
+              class="badge badge-success"
+            >{{ theDesignatedProduct.quantite }}</span
+            >
+            <span
+              *ngIf="theDesignatedProduct.quantite == 0"
+              class="badge badge-danger"
+            >{{ theDesignatedProduct.quantite }}</span
+            >
+            !
+          </p>
+        </div>
+      </div>
+      <div class="card card-outline-secondary my-4">
+        <div class="card-header">
+          Product Description :
+        </div>
+        <div class="card-body">
+          <p>
+            This Product manifactor is {{ theDesignatedProduct.marque }} and its
+            well knows for their quality and build quality.
+          </p>
+          <p>
+            {{ theDesignatedProduct.description }}
+          </p>
+
+          <hr/>
+          <div class="row">
+            <strong class="text-muted  col-8 "> </strong>
+            <a
+              (click)="addProduit(theDesignatedProduct)"
+              *ngIf="theDesignatedProduct.quantite > 0"
+              class="btn btn-success px-1 col-4"
+            >Add to the cart ?
+            </a>
+            <a
+              href="#"
+              *ngIf="theDesignatedProduct.quantite == 0"
+              class="btn btn-danger disabled"
+            >Out Of Stock
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

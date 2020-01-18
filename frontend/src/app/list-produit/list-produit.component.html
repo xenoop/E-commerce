@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-4 col-sm-6 mb-4 border-info" *ngFor="let p of listProduit">
+    <div class="card h-100">
+      <a [routerLink]="['productDetails',p._id]"><img class="card-img-top" [src]="p.urlImage" alt=""/></a>
+      <div class="card-body ">
+        <h4 class="card-title">
+          <a [routerLink]="['productDetails',p._id]">{{ p.name }}</a>
+        </h4>
+        <h5>${{ p.prix }}</h5>
+        <p class="card-text">Categorie : {{ p.categorie }}</p>
+      </div>
+      <div class="card-footer bg-info">
+        <small class=" text-white"
+        >left in Stock :
+          <span *ngIf="p.quantite>0" class="badge badge-success">{{ p.quantite }}</span>
+          <span *ngIf="p.quantite==0" class="badge badge-danger">{{ p.quantite }}</span>
+        </small
+        >
+      </div>
+    </div>
+  </div>
+</div>

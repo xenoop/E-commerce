@@ -1,0 +1,59 @@
+<div class="pt-5 container">
+  <div class="row">
+    <div class="col-lg-3">
+      <app-sidebar></app-sidebar>
+    </div>
+    <!--      TODO add the view for the search 2- do the cart part 3- enlighten the project with the admin interface 4- commands part (easy) 5- don't forget the categories -->
+    <div class="col-lg-9">
+      <div class="container-fluid text-white">
+        <h2>Number of results found : <span
+          class="badge badge-info">{{listSearch.name.length + listSearch.desc.length}}</span></h2>
+        <!--        style="background-color:#17A2B7"-->
+        <!--        <tr *ngFor="let p of listSearch.name">-->
+        <div class="alert alert-info" role="banner">
+          <h4 class="alert-heading">Results Found By Name :</h4>
+          <ul class="list-unstyled mt-4">
+            <li>
+              <div *ngIf="listSearch.name.length == 0" class="media-body bg-warning"><h5> NO Results Found.</h5></div>
+            </li>
+            <li *ngFor="let p of listSearch.name" class="media mb-4" [routerLink]="['/productDetails',p._id]">
+
+              <img class="mr-3" [src]="p.urlImage" style="width: 150px" alt="Generic placeholder image">
+              <div class="media-body">
+                <div class="row">
+                  <h5 class="mt-0 col-11">{{p.name}} </h5><span
+                  class="col-1 badge badge-light text-primary-50">$ {{p.prix}}</span></div>
+                <p>{{p.categorie}}</p>
+              </div>
+            </li>
+          </ul>
+          <!--          <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>-->
+          <hr>
+        </div>
+        <div class="alert alert-info mt-4" role="banner">
+          <h4 class="alert-heading">Results Found By Description :</h4>
+          <ul class="list-unstyled mt-4">
+            <li>
+              <div *ngIf="listSearch.desc.length == 0" class="media-body bg-warning"><h5> NO Results Found.</h5></div>
+            </li>
+            <li *ngFor="let p of listSearch.desc" class="media mb-4" [routerLink]="['/productDetails',p._id]">
+
+              <img class="mr-3" [src]="p.urlImage" style="width: 150px" alt="Generic placeholder image">
+              <div class="media-body">
+                <div class="row">
+                  <h5 class="mt-0 col-11">{{p.name}} </h5><span
+                  class="col-1 badge badge-light text-primary-50">$ {{p.prix}}</span></div>
+                <p>{{p.categorie}}</p>
+              </div>
+            </li>
+          </ul>
+          <!--          <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>-->
+          <hr>
+
+        </div>
+
+        <!--      descriptions :{{ listSearch.desc[0].name}}-->
+      </div>
+    </div>
+  </div>
+</div>

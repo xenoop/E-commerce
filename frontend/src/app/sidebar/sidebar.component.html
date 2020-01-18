@@ -1,0 +1,25 @@
+<div class="card my-4 bg-info position-sticky">
+  <h5 class="card-header">Search</h5>
+  <form #searchForm="ngForm">
+    <div class="card-body bg-light">
+      <div class="input-group">
+        <input type="text" name="search" [(ngModel)]="search" class="form-control" placeholder="Search for... "/>
+        <span class="input-group-btn ml-2">
+          <a (click)="setTimeOut()" class="btn btn-outline-info"
+             [routerLink]="['/search',searchForm.value.search]">Go!</a>
+        </span>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="card my-4 bg-info">
+  <h5 class="card-header">Categories</h5>
+  <div class="card-body bg-light">
+    <div class="list-group">
+      <a [routerLink]="['/listProductsbyCat','2 in 1 laptops']" class="list-group-item text-info">2 in 1 laptops</a>
+      <a [routerLink]="['/listProductsbyCat','traditional laptop']" class="list-group-item text-info">Traditional
+        Laptop</a>
+      <a [routerLink]="['/listProductsbyCat','Gaming Laptop']" class="list-group-item text-info">Gaming Laptop</a>
+    </div>
+  </div>
+</div>
